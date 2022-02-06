@@ -1,0 +1,30 @@
+--- MAX31855_Linearization-orig.ino	2022-01-02 15:23:06.694833334 +0100
++++ MAX31855_Linearization.ino	2022-01-20 11:05:47.129488695 +0100
+@@ -27,6 +27,9 @@
+         Serial.println("Something wrong with thermocouple!");
+       }
+        else {
++         unsigned long time_start, time_end;
++         time_start = micros();
++
+           // Steps 1 & 2. Subtract cold junction temperature from the raw thermocouple temperature.
+           thermocoupleVoltage = (rawTemp - internalTemp)*0.041276;  // C * mv/C = mV
+  
+@@ -101,6 +104,17 @@
+              correctedTemp = NAN;
+           }
+  
++          time_end = micros();
++
++          Serial.print(time_end - time_start);
++          Serial.println(" us");
++
++          Serial.print("Tint = ");
++          Serial.println(internalTemp, 5);
++
++          Serial.print("Traw = ");
++          Serial.println(rawTemp, 5);
++
+           Serial.print("Corrected Temp = ");
+           Serial.println(correctedTemp, 5);
+           Serial.println("");

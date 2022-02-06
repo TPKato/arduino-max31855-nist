@@ -1,0 +1,18 @@
+* Simplest Project of MAX31855 with Temperature Correction for Arduino
+
+Visit [[https://www.chinpui.org/hack/en/basteln/max31855-correction/]] for more details.
+
+** Files
+
+- ~arduino-max31855-nist.ino~ :: main program
+- ~nist-its90.c~, ~nist-its90-K.c~, ~nist-its90.h~, ~nist-its90-config.h~ :: functions
+  to convert between temperature and electromotive force
+  (copied from [[https://github.com/TPKato/nist-its90][Library for Thermocouple based on NIST ITS-90 Database]])
+
+  See https://www.chinpui.org/hack/en/softwares/nist-its90/ for more details of this library.
+
+- ~MAX31855_Linearization.ino.diff~ :: patch to heypete's
+  [[https://raw.githubusercontent.com/heypete/MAX31855-Linearization/master/MAX31855_Linearization/MAX31855_Linearization.ino][MAX31855_Linearization.ino]]
+  from
+  [[https://github.com/heypete/MAX31855-Linearization][MAX31855-Linearization]]
+  to measure time of the calculation
